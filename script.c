@@ -3,8 +3,26 @@
 
 void main()
 {
+  int disorderedVector[] = {1, 9, 3, 6, 2, 3, 5, 7, 3, 5};
   int vectorSize = 10;
-  int disorderedVector[] = {1, 9, 3, 6, 34, 3, 5, 7, 3, 2};
+
+  void bubbleSortOrdination(int vector[], int vectorNumber)
+  {
+    int assistant = 0;
+
+    for (int i = 0; i < vectorNumber; i++) {
+      for (int j = 0; j < vectorNumber; j++) {
+
+        if(vector[j] > vector[j+1]) {
+          assistant = vector[j];
+          vector[j] = vector[j+1];
+          vector[j+1] = assistant;
+        }
+      }
+
+      vectorNumber--;
+    }
+  }
 
   void selectionSortOrdination(int vector[], int vectorNumber)
   {
@@ -35,30 +53,12 @@ void main()
   {
   }
 
-  void bubbleSortOrdination(int vector[], int vectorNumber)
-  {
-    int vectorLength = vectorNumber;
-    int assistant;
-
-    for (int i = 0; i < vectorNumber; i++) {
-      for (int j = 0; j < vectorLength; j++) {
-
-        if(vector[j] > vector[j+1]) {
-          assistant = vector[j];
-          vector[j] = vector[j+1];
-          vector[j+1] = assistant;
-        }
-      }
-
-      vectorLength--;
-    }
-  }
-
   bubbleSortOrdination(disorderedVector, vectorSize);
-  
+
   for (int i = 0; i < vectorSize; i++) {
     printf("%d | ", disorderedVector[i]);
   }
 
   system("pause");
 }
+
